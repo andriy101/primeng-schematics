@@ -1,0 +1,17 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "ng-add": {
+      "description": "Adds PrimeNG to the application without affecting any templates",
+      "factory": "./shell",
+      "schema": "./shell/schema.json",
+      "aliases": ["primeng-shell"]
+    },
+    "primengMenubar": {
+      "description": "Create a menubar component",
+      "factory": "./menubar/index",
+      "schema": "./menubar/schema.json",
+      "aliases": [ "primeng-menubar" ]
+    }
+  }
+}
