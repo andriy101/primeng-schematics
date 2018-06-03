@@ -1,28 +1,34 @@
-# Getting Started With Schematics
+# COMING REALLY VERY SOON, 
+# DO NOT USE current 0.0.0 version
 
-This repository is a basic Schematic implementation that serves as a starting point to create and publish Schematics to NPM.
+This project is heavily enspired by [Angular Material Schematics](Angular Material Schematics) and adds [Prime NG](https://www.primefaces.org/primeng) support to your Angular project.
 
-### Testing
+### Install Schematics
 
-To test locally, install `@angular-devkit/schematics` globally and use the `schematics` command line tool. That tool acts the same as the `generate` command of the Angular CLI, but also has a debug mode.
-
-Check the documentation with
-```bash
-schematics --help
-```
-
-### Unit Testing
-
-`npm run test` will run the unit tests, using Jasmine as a runner and test framework.
-
-### Publishing
-
-To publish, simply do:
+No need (although possible and harmless) in running `npm i primeng-schematics`, running `ng add` will handle it for you.
 
 ```bash
-npm run build
-npm publish
+ng add primeng-schematics
 ```
 
-That's it!
- 
+The command will help you quickly add Prime NG to a new project. This schematic will:
+* Ensure project dependencies in `package.json`
+* Ensure project dependencies in your app module
+* Adds prebuilt Prime NG theme into `angular-cli.json`
+* Adds Font Awesome fonts
+
+### Generator Schematics
+
+In addition to the install schematic Prime NG has currently one (more to come very soon :)) schematic it comes packaged with:
+* [Menubar](https://www.primefaces.org/primeng/#/menubar)
+* Many more to come very soon...
+
+#### Menubar Schematic
+
+The menubar schematic will create a new component that includes Prime NG Menubar component.
+
+```bash
+ng generate primeng-schematics:primeng-menubar --name <component-name>
+```
+
+[Code on Github](https://github.com/andriy101/primeng-schematics)
