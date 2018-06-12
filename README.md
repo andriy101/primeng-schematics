@@ -1,6 +1,3 @@
-# COMING REALLY VERY SOON, 
-# DO NOT USE current 0.0.0 version
-
 This project is heavily enspired by [Angular Material Schematics](https://material.angular.io/guide/schematics) and adds [Prime NG](https://www.primefaces.org/primeng) support to your Angular project.
 
 ### Install Schematics
