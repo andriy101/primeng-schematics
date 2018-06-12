@@ -34,11 +34,11 @@ import { MenuItem } from 'primeng/api';
                 <button pButton type="button" (click)="visibleSidebar5 = false" label="Cancel" class="ui-button-secondary"></button>
               </p-sidebar>
 
-              <button pButton type="button" (click)="visibleSidebar1 = true" icon="fa-arrow-right"></button>
-              <button pButton type="button" (click)="visibleSidebar2 = true" icon="fa-arrow-left"></button>
-              <button pButton type="button" (click)="visibleSidebar3 = true" icon="fa-arrow-down"></button>
-              <button pButton type="button" (click)="visibleSidebar4 = true" icon="fa-arrow-up"></button>
-              <button pButton type="button" (click)="visibleSidebar5 = true" icon="fa-arrows-alt"></button>`,<% } else { %>
+              <button pButton type="button" (click)="visibleSidebar1 = true" icon="fa fa-arrow-right"></button>
+              <button pButton type="button" (click)="visibleSidebar2 = true" icon="fa fa-arrow-left"></button>
+              <button pButton type="button" (click)="visibleSidebar3 = true" icon="fa fa-arrow-down"></button>
+              <button pButton type="button" (click)="visibleSidebar4 = true" icon="fa fa-arrow-up"></button>
+              <button pButton type="button" (click)="visibleSidebar5 = true" icon="fa fa-arrows-alt"></button>`,<% } else { %>
   templateUrl: './<%= dasherize(name) %>.component.html',<% } if(inlineStyle) { %>
   styles: []<% } else { %>
   styleUrls: ['./<%= dasherize(name) %>.component.<%= styleext %>']<% } %><% if(!!viewEncapsulation) { %>,
