@@ -5,7 +5,7 @@
       "description": "Adds PrimeNG to the application without affecting any templates",
       "factory": "./shell",
       "schema": "./shell/schema.json",
-      "aliases": [ "primeng-shell", "primengShell" ]
+      "aliases": [ "primeng-shell" ]
     },
     "menubar": {
       "description": "Create a menubar component",

@@ -16,7 +16,7 @@ describe('primeng-shell-schematic', () => {
   });
 
   it('should update package.json', () => {
-    const tree = runner.runSchematic('primengShell', {}, appTree);
+    const tree = runner.runSchematic('primeng-shell', {}, appTree);
     const packageJson = JSON.parse(getFileContent(tree, '/package.json'));
 
     expect(packageJson.dependencies['primeng']).toBeDefined();

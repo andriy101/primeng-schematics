@@ -2,6 +2,10 @@
   "name": "primeng-schematics",
   "version": "1.0.0",
   "description": "A blank schematics",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andriy101/primeng-schematics.git"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "npm run build && jasmine src/**/*_spec.js"
@@ -9,7 +13,7 @@
   "keywords": [
     "schematics"
   ],
-  "author": "",
+  "author": "balcheer",
   "license": "MIT",
   "schematics": "./src/collection.json",
   "dependencies": {

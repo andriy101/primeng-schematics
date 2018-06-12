@@ -13,7 +13,7 @@ describe('primeng-shell-schematic', () => {
         runner = new testing_1.SchematicTestRunner('schematics', collectionPath);
     });
     it('should update package.json', () => {
-        const tree = runner.runSchematic('primengShell', {}, appTree);
+        const tree = runner.runSchematic('primeng-shell', {}, appTree);
         const packageJson = JSON.parse(test_1.getFileContent(tree, '/package.json'));
         expect(packageJson.dependencies['primeng']).toBeDefined();
         expect(packageJson.dependencies['font-awesome']).toBeDefined();
