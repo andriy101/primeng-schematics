@@ -5,7 +5,7 @@ const path_1 = require("path");
 const testing_2 = require("../utils/testing");
 const test_1 = require("@schematics/angular/utility/test");
 const collectionPath = path_1.join(__dirname, '../collection.json');
-describe('material-nav-schematic', () => {
+describe('primeng-menubar-schematic', () => {
     let runner;
     const options = {
         name: 'foo',
@@ -25,7 +25,7 @@ describe('material-nav-schematic', () => {
         runner = new testing_1.SchematicTestRunner('schematics', collectionPath);
     });
     it('should create nav files and add them to module', () => {
-        const tree = runner.runSchematic('primengMenubar', Object.assign({}, options), testing_2.createTestApp());
+        const tree = runner.runSchematic('menubar', Object.assign({}, options), testing_2.createTestApp());
         const files = tree.files;
         expect(files).toContain('/src/app/foo/foo.component.css');
         expect(files).toContain('/src/app/foo/foo.component.html');
@@ -35,8 +35,8 @@ describe('material-nav-schematic', () => {
         expect(moduleContent).toMatch(/import.*Foo.*from '.\/foo\/foo.component'/);
         expect(moduleContent).toMatch(/declarations:\s*\[[^\]]+?,\r?\n\s+FooComponent\r?\n/m);
     });
-    it('should add nav imports to module', () => {
-        const tree = runner.runSchematic('primengMenubar', Object.assign({}, options), testing_2.createTestApp());
+    it('should add menubar imports to module', () => {
+        const tree = runner.runSchematic('menubar', Object.assign({}, options), testing_2.createTestApp());
         const moduleContent = test_1.getFileContent(tree, '/src/app/app.module.ts');
         expect(moduleContent).toContain('MenubarModule');
     });

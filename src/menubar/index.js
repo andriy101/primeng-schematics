@@ -10,14 +10,14 @@ const component_1 = require("../utils/devkit-utils/component");
 function default_1(options) {
     return schematics_1.chain([
         component_1.buildComponent(Object.assign({}, options)),
-        options['skipImport'] ? schematics_1.noop() : addMenubarModulesToModule(options)
+        options['skipImport'] ? schematics_1.noop() : addComponentModulesToModule(options)
     ]);
 }
 exports.default = default_1;
 /**
  * Adds the required modules to the relative module.
  */
-function addMenubarModulesToModule(options) {
+function addComponentModulesToModule(options) {
     return (host) => {
         const modulePath = ast_1.findModuleFromOptions(host, options) || null;
         if (modulePath) {

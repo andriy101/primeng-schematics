@@ -24,8 +24,8 @@ describe('primeng-sidebar-schematic', () => {
     beforeEach(() => {
         runner = new testing_1.SchematicTestRunner('schematics', collectionPath);
     });
-    it('should create nav files and add them to module', () => {
-        const tree = runner.runSchematic('primengMenubar', Object.assign({}, options), testing_2.createTestApp());
+    it('should create sidebar files and add them to module', () => {
+        const tree = runner.runSchematic('primengSidebar', Object.assign({}, options), testing_2.createTestApp());
         const files = tree.files;
         expect(files).toContain('/src/app/foo/foo.component.css');
         expect(files).toContain('/src/app/foo/foo.component.html');
@@ -35,7 +35,7 @@ describe('primeng-sidebar-schematic', () => {
         expect(moduleContent).toMatch(/import.*Foo.*from '.\/foo\/foo.component'/);
         expect(moduleContent).toMatch(/declarations:\s*\[[^\]]+?,\r?\n\s+FooComponent\r?\n/m);
     });
-    it('should add nav imports to module', () => {
+    it('should add sidebar imports to module', () => {
         const tree = runner.runSchematic('primengSidebar', Object.assign({}, options), testing_2.createTestApp());
         const moduleContent = test_1.getFileContent(tree, '/src/app/app.module.ts');
         expect(moduleContent).toContain('SidebarModule');

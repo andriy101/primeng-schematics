@@ -24,8 +24,8 @@ describe('primeng-org-chart-schematic', () => {
     beforeEach(() => {
         runner = new testing_1.SchematicTestRunner('schematics', collectionPath);
     });
-    it('should create files and add them to module', () => {
-        const tree = runner.runSchematic('primengOrgChart', Object.assign({}, options), testing_2.createTestApp());
+    it('should create org chart files and add them to module', () => {
+        const tree = runner.runSchematic('orgChart', Object.assign({}, options), testing_2.createTestApp());
         const files = tree.files;
         expect(files).toContain('/src/app/foo/foo.component.css');
         expect(files).toContain('/src/app/foo/foo.component.html');
@@ -35,8 +35,8 @@ describe('primeng-org-chart-schematic', () => {
         expect(moduleContent).toMatch(/import.*Foo.*from '.\/foo\/foo.component'/);
         expect(moduleContent).toMatch(/declarations:\s*\[[^\]]+?,\r?\n\s+FooComponent\r?\n/m);
     });
-    it('should add imports to module', () => {
-        const tree = runner.runSchematic('primengOrgChart', Object.assign({}, options), testing_2.createTestApp());
+    it('should add org chart imports to module', () => {
+        const tree = runner.runSchematic('orgChart', Object.assign({}, options), testing_2.createTestApp());
         const moduleContent = test_1.getFileContent(tree, '/src/app/app.module.ts');
         expect(moduleContent).toContain('OrganizationChartModule');
     });

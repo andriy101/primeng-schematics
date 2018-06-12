@@ -4,7 +4,7 @@ const schematics_1 = require("@angular-devkit/schematics");
 const ast_1 = require("../utils/ast");
 const component_1 = require("../utils/devkit-utils/component");
 /**
- * Scaffolds a new menu bar component.
+ * Scaffolds a new tree table component.
  * Internally it bootstraps the base component schematic
  */
 function default_1(options) {
