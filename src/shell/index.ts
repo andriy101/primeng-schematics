@@ -2,7 +2,13 @@ import { chain, noop, Rule, SchematicContext, Tree } from '@angular-devkit/schem
 import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
 
 import { addModuleImportToRootModule } from '../utils/ast';
-import { primengVersion, primeiconsVersion, angularVersion, rxjsCompatVersion } from '../utils/lib-versions';
+import { 
+  primengVersion, 
+  fontAwesomeVersion,
+  primeiconsVersion, 
+  angularVersion, 
+  rxjsCompatVersion 
+} from '../utils/lib-versions';
 import { addPackageToPackageJson } from '../utils/package';
 import { getProjectFromWorkspace, getWorkspace } from '../utils/devkit-utils/config';
 import { Schema } from './schema';
@@ -28,6 +34,7 @@ export default function(options: Schema): Rule {
 function addPrimengToPackageJson() {
   return (host: Tree, context: SchematicContext) => {
     addPackageToPackageJson(host, 'dependencies', 'primeng', primengVersion);
+    addPackageToPackageJson(host, 'dependencies', 'font-awesome', fontAwesomeVersion);
     addPackageToPackageJson(host, 'dependencies', 'primeicons', primeiconsVersion);
     addPackageToPackageJson(host, 'dependencies', '@angular/animations', angularVersion);
     addPackageToPackageJson(host, 'devDependencies', 'rxjs-compat', rxjsCompatVersion);
