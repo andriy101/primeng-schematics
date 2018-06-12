@@ -28,7 +28,7 @@ export default function(options: Schema): Rule {
 function addPrimengToPackageJson() {
   return (host: Tree, context: SchematicContext) => {
     addPackageToPackageJson(host, 'dependencies', 'primeng', primengVersion);
-    addPackageToPackageJson(host, 'dependencies', 'primeiconsVersion', primeiconsVersion);
+    addPackageToPackageJson(host, 'dependencies', 'primeicons', primeiconsVersion);
     addPackageToPackageJson(host, 'dependencies', '@angular/animations', angularVersion);
     addPackageToPackageJson(host, 'devDependencies', 'rxjs-compat', rxjsCompatVersion);
     context.addTask(new NodePackageInstallTask());
