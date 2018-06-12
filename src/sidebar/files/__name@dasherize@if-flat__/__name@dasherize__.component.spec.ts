@@ -1,9 +1,8 @@
 import { fakeAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MenubarModule } from 'primeng/menubar';
+import { SidebarModule } from 'primeng/sidebar';
 import { ButtonModule } from 'primeng/button';
-import { InputTextModule } from 'primeng/inputtext';
 
 import { <%= classify(name) %>Component } from './<%= dasherize(name) %>.component';
 
@@ -14,10 +13,9 @@ describe('<%= classify(name) %>Component', () => {
   beforeEach(fakeAsync(() => {
     TestBed.configureTestingModule({
       imports: [ 
-        BrowserAnimationsModule,
-        MenubarModule,
-        ButtonModule,
-        InputTextModule
+        BrowserAnimationsModule, 
+        SidebarModule, 
+        ButtonModule 
       ],
       declarations: [ <%= classify(name) %>Component ]
     })

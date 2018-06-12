@@ -1,16 +1,25 @@
 import { Tree } from '@angular-devkit/schematics';
 import { SchematicTestRunner } from '@angular-devkit/schematics/testing';
-import * as path from 'path';
+import { join } from 'path';
+import { getFileContent } from '@schematics/angular/utility/test';
+import { createTestApp } from '../utils/testing';
 
+const collectionPath = join(__dirname, '../collection.json');
 
-const collectionPath = path.join(__dirname, '../collection.json');
+describe('primeng-shell-schematic', () => {
+  let runner: SchematicTestRunner;
+  let appTree: Tree;
 
+  beforeEach(() => {
+    appTree = createTestApp();
+    runner = new SchematicTestRunner('schematics', collectionPath);
+  });
 
-describe('primeng-schematics', () => {
-  it('works', () => {
-    const runner = new SchematicTestRunner('schematics', collectionPath);
-    const tree = runner.runSchematic('primeng-schematics', {}, Tree.empty());
+  it('should update package.json', () => {
+    const tree = runner.runSchematic('primengShell', {}, appTree);
+    const packageJson = JSON.parse(getFileContent(tree, '/package.json'));
 
-    expect(tree.files).toEqual([]);
+    expect(packageJson.dependencies['primeng']).toBeDefined();
+    expect(packageJson.dependencies['font-awesome']).toBeDefined();
   });
 });

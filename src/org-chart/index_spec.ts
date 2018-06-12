@@ -5,7 +5,7 @@ import { getFileContent } from '@schematics/angular/utility/test';
 
 const collectionPath = join(__dirname, '../collection.json');
 
-describe('primeng-menubar-schematic', () => {
+describe('primeng-org-chart-schematic', () => {
   let runner: SchematicTestRunner;
   const options = {
     name: 'foo',
@@ -26,8 +26,8 @@ describe('primeng-menubar-schematic', () => {
     runner = new SchematicTestRunner('schematics', collectionPath);
   });
 
-  it('should create nav files and add them to module', () => {
-    const tree = runner.runSchematic('menubar', { ...options }, createTestApp());
+  it('should create org chart files and add them to module', () => {
+    const tree = runner.runSchematic('orgChart', { ...options }, createTestApp());
     const files = tree.files;
 
     expect(files).toContain('/src/app/foo/foo.component.css');
@@ -40,10 +40,10 @@ describe('primeng-menubar-schematic', () => {
     expect(moduleContent).toMatch(/declarations:\s*\[[^\]]+?,\r?\n\s+FooComponent\r?\n/m);
   });
 
-  it('should add menubar imports to module', () => {
-    const tree = runner.runSchematic('menubar', { ...options }, createTestApp());
+  it('should add org chart imports to module', () => {
+    const tree = runner.runSchematic('orgChart', { ...options }, createTestApp());
     const moduleContent = getFileContent(tree, '/src/app/app.module.ts');
 
-    expect(moduleContent).toContain('MenubarModule');
+    expect(moduleContent).toContain('OrganizationChartModule');
   });
 });
