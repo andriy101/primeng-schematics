@@ -4,7 +4,7 @@ import { addModuleImportToModule, findModuleFromOptions } from '../utils/ast';
 import { buildComponent } from '../utils/devkit-utils/component';
 
 /**
- * Scaffolds a new menu bar component.
+ * Scaffolds a new sidebar component.
  * Internally it bootstraps the base component schematic
  */
 export default function(options: Schema): Rule {
@@ -21,9 +21,8 @@ function addComponentModulesToModule(options: Schema) {
   return (host: Tree) => {
     const modulePath = findModuleFromOptions(host, options) || null;
     if (modulePath) {
-      addModuleImportToModule(host, modulePath, 'MenubarModule', 'primeng/menubar');
+      addModuleImportToModule(host, modulePath, 'SidebarModule', 'primeng/sidebar');
       addModuleImportToModule(host, modulePath, 'ButtonModule', 'primeng/button');
-      addModuleImportToModule(host, modulePath, 'InputTextModule', 'primeng/inputtext');
     }
     return host;
   };

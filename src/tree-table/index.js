@@ -4,7 +4,7 @@ const schematics_1 = require("@angular-devkit/schematics");
 const ast_1 = require("../utils/ast");
 const component_1 = require("../utils/devkit-utils/component");
 /**
- * Scaffolds a new menu bar component.
+ * Scaffolds a new tree table component.
  * Internally it bootstraps the base component schematic
  */
 function default_1(options) {
@@ -21,9 +21,7 @@ function addComponentModulesToModule(options) {
     return (host) => {
         const modulePath = ast_1.findModuleFromOptions(host, options) || null;
         if (modulePath) {
-            ast_1.addModuleImportToModule(host, modulePath, 'MenubarModule', 'primeng/menubar');
-            ast_1.addModuleImportToModule(host, modulePath, 'ButtonModule', 'primeng/button');
-            ast_1.addModuleImportToModule(host, modulePath, 'InputTextModule', 'primeng/inputtext');
+            ast_1.addModuleImportToModule(host, modulePath, 'TreeTableModule', 'primeng/treetable');
         }
         return host;
     };

@@ -31,7 +31,8 @@ export function addThemeToAppStyles(options: Schema): (host: Tree) => Tree {
  */
 function insertPrebuiltTheme(project: Project, host: Tree, theme: string, workspace: Workspace) {
   const themeFilePaths = [
-    'node_modules/font-awesome/css/font-awesome.min.css',
+    'node_modules/font-awesome/css/font-awesome.css',
+    'node_modules/primeicons/primeicons.css',
     `node_modules/primeng/resources/themes/${theme}/theme.css`,
     'node_modules/primeng/resources/primeng.min.css'
   ];
