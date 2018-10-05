@@ -1,6 +1,6 @@
 {
   "name": "primeng-schematics",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "Schematics for Prime NG",
   "repository": {
     "type": "git",
@@ -15,10 +15,10 @@
     "primeng",
     "angular"
   ],
-  "author": { 
-    "name" : "Andriy Malish",
-    "email" : "andriy101@gmail.com",
-    "url" : "https://www.linkedin.com/in/andriymalish/"
+  "author": {
+    "name": "Andriy Malish",
+    "email": "andriy101@gmail.com",
+    "url": "https://www.linkedin.com/in/andriymalish/"
   },
   "license": "MIT",
   "schematics": "./src/collection.json",
