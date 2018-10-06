@@ -24,7 +24,7 @@ The command will help you quickly add Prime NG to a new project. This schematic 
 
 ### Generator Schematics
 
-In addition to the install schematic Prime NG has currently one (more to come very soon :)) schematic it comes packaged with:
+In addition to the install schematic Prime NG has currently four (more to come soon) schematics it comes packaged with:
 * [Menu bar](https://www.primefaces.org/primeng/#/menubar)
 * [Organization chart](https://www.primefaces.org/primeng/#/organizationchart) (including Prime NG growl)
 * [Side bar](https://www.primefaces.org/primeng/#/sidebar)
@@ -59,7 +59,7 @@ ng g primeng-schematics:primeng-tree-table --name <component-name>
 
 After executing one of those commands, a new angular component will be created with provided name. After this point you can add this new component to any existing component.
 
-For example, assuming that you created `<mb>`, `<oc>`, `<sb>` and `<tt>` components (menu bar, organization chart, side menu and tree table), you may modufy your `app.component.html` file to something like:
+For example, assuming that you created `<mb>`, `<oc>`, `<sb>` and `<tt>` components (menu bar, organization chart, side menu and tree table), you may modify your `app.component.html` file to something like:
 
 ```html
 <mb></mb>
