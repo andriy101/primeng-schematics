@@ -1,6 +1,9 @@
 ### Prime NG schematics
 
-This project is heavily enspired by [Angular Material Schematics](https://material.angular.io/guide/schematics) and adds [Prime NG](https://www.primefaces.org/primeng) support to your Angular project.
+![npm version](https://badge.fury.io/js/primeng-schematics.svg)
+![npm](https://img.shields.io/npm/dt/primeng-schematics.svg)
+
+This project is heavily inspired by [Angular Material Schematics](https://material.angular.io/guide/schematics) and adds [Prime NG](https://www.primefaces.org/primeng) support to your Angular project.
 
 ### Install Schematics
 
