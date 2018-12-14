@@ -6,6 +6,8 @@
 
 This project is heavily inspired by [Angular Material Schematics](https://material.angular.io/guide/schematics) and adds [Prime NG](https://www.primefaces.org/primeng) support to your Angular project.
 
+[![Prime NG](https://www.primefaces.org/primeng/assets/showcase/images/logo.png)](https://www.primefaces.org/primeng)
+
 ### Install Schematics
 
 First create an empty project as usually:
