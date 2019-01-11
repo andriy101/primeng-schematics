@@ -3,7 +3,7 @@
   "schematics": {
     "ng-add": {
       "description": "Adds PrimeNG to the application without affecting any templates",
-      "factory": "./shell",
+      "factory": "./shell/index",
       "schema": "./shell/schema.json",
       "aliases": [ "primeng-shell" ]
     },
