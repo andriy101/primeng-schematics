@@ -3,31 +3,31 @@
   "schematics": {
     "ng-add": {
       "description": "Adds PrimeNG to the application without affecting any templates",
-      "factory": "./shell/index",
+      "factory": "./shell",
       "schema": "./shell/schema.json",
       "aliases": [ "primeng-shell" ]
     },
     "menubar": {
       "description": "Create a menubar component",
-      "factory": "./menubar/index",
+      "factory": "./menubar",
       "schema": "./menubar/schema.json",
       "aliases": [ "primeng-menubar" ]
     },
     "orgChart": {
       "description": "Create an organization chart component",
-      "factory": "./org-chart/index",
+      "factory": "./org-chart",
       "schema": "./org-chart/schema.json",
       "aliases": [ "primeng-org-chart" ]
     },
     "sidebar": {
       "description": "Create a sidebar component",
-      "factory": "./sidebar/index",
+      "factory": "./sidebar",
       "schema": "./sidebar/schema.json",
       "aliases": [ "primeng-sidebar" ]
     },
     "treetable": {
       "description": "Create a tree table component",
-      "factory": "./tree-table/index",
+      "factory": "./tree-table",
       "schema": "./tree-table/schema.json",
       "aliases": [ "primeng-tree-table" ]
     }
