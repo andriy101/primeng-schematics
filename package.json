@@ -1,6 +1,6 @@
 {
   "name": "primeng-schematics",
-  "version": "1.1.8",
+  "version": "7.0.0",
   "description": "Schematics for Prime NG",
   "repository": {
     "type": "git",
@@ -8,7 +8,8 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "npm run build && jasmine src/**/*_spec.js"
+    "test": "npm run build && jasmine src/**/**/*.spec.js",
+    "ts-only": "sudo find ./src \\( -name \"*.d.ts\" -o -name \"*.js\" \\! -name \"*__.js\" \\! -name \"*__.test.js\" \\! -name \"*Data.js\" -o -name \"*.js.map\" \\) -exec rm {} \\;"
   },
   "keywords": [
     "schematics",
@@ -23,12 +24,14 @@
   "license": "MIT",
   "schematics": "./src/collection.json",
   "dependencies": {
-    "@angular-devkit/core": "^0.7.5",
-    "@angular-devkit/schematics": "^0.7.5",
-    "@schematics/angular": "^0.7.5",
-    "@types/jasmine": "^2.6.0",
-    "@types/node": "^8.0.31",
-    "jasmine": "^2.8.0",
-    "typescript": "^2.9.2"
+    "@angular-devkit/core": "~7.2.3",
+    "@angular-devkit/schematics": "~7.2.3",
+    "@angular/cdk": "^7.2.2",
+    "@schematics/angular": "~7.2.3",
+    "@types/jasmine": "^3.3.8",
+    "@types/node": "~10.12.18",
+    "jasmine": "~3.3.1",
+    "tslint": "^5.12.1",
+    "typescript": "~3.2.4"
   }
 }

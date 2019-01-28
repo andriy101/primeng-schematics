@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "primeng-ng-add",
+  "title": "Primeng ng-add schematic",
+  "type": "object",
+  "properties": {
+    "skipPackageJson": {
+      "type": "boolean",
+      "default": false,
+      "description": "Do not add primeng dependencies to package.json (e.g., --skipPackageJson)"
+    },
+    "theme": {
+      "description": "The theme to apply",
+      "type": "string",
+      "default": "omega",
+      "x-prompt": {
+        "message": "Choose a prebuilt theme name, or \"custom\" for a custom theme:",
+        "type": "list",
+        "items": [
+          { "value": "omega", "label": "Omega" },
+          { "value": "flick", "label": "Flick" },
+          { "value": "lightness", "label": "Lightness" },
+          { "value": "kasper", "label": "Kasper" },
+          { "value": "start", "label": "Start" }
+        ]
+      }
+    }
+  },
+  "project": {
+    "type": "string",
+    "description": "Name of the project.",
+    "$default": {
+      "$source": "projectName"
+    }
+  },
+  "required": []
+}

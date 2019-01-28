@@ -3,33 +3,33 @@
   "schematics": {
     "ng-add": {
       "description": "Adds PrimeNG to the application without affecting any templates",
-      "factory": "./shell",
-      "schema": "./shell/schema.json",
-      "aliases": [ "primeng-shell" ]
+      "factory": "./ng-add",
+      "schema": "./ng-add/schema.json",
+      "aliases": [ "primeng-add" ]
     },
     "menubar": {
       "description": "Create a menubar component",
-      "factory": "./menubar",
-      "schema": "./menubar/schema.json",
-      "aliases": [ "primeng-menubar" ]
+      "factory": "./ng-generate/menubar/index",
+      "schema": "./ng-generate/menubar/schema.json",
+      "aliases": [ "primeng-menubar", "mb" ]
     },
-    "orgChart": {
+    "org-chart": {
       "description": "Create an organization chart component",
-      "factory": "./org-chart",
-      "schema": "./org-chart/schema.json",
-      "aliases": [ "primeng-org-chart" ]
+      "factory": "./ng-generate/org-chart/index",
+      "schema": "./ng-generate/org-chart/schema.json",
+      "aliases": [ "primeng-org-chart", "oc" ]
     },
     "sidebar": {
       "description": "Create a sidebar component",
-      "factory": "./sidebar",
-      "schema": "./sidebar/schema.json",
-      "aliases": [ "primeng-sidebar" ]
+      "factory": "./ng-generate/sidebar/index",
+      "schema": "./ng-generate/sidebar/schema.json",
+      "aliases": [ "primeng-sidebar", "sb" ]
     },
-    "treetable": {
-      "description": "Create a tree table component",
-      "factory": "./tree-table",
-      "schema": "./tree-table/schema.json",
-      "aliases": [ "primeng-tree-table" ]
+    "table": {
+      "description": "Create a table component",
+      "factory": "./ng-generate/table/index",
+      "schema": "./ng-generate/table/schema.json",
+      "aliases": [ "primeng-table", "t" ]
     }
   }
 }
