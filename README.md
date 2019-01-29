@@ -70,8 +70,6 @@ ng g primeng-schematics:table <component-name>
 ng g primeng-schematics:t <component-name>
 ```
 
-Component name may be omitted with ng new command, in this case it will be prompted to be enetered using new schematics prompt feature.
-
 After executing one of those commands, a new angular component will be created with provided name. After this point you can add this new component to any existing component.
 
 For example, assuming that you created `<app-mb>`, `<app-oc>`, `<app-sb>` and `<app-t>` components (menu bar, organization chart, side menu and table), you may modify your `app.component.html` file to something like:
