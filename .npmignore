@@ -1,5 +1,3 @@
 # Ignores TypeScript files, but keeps definitions.
-*/files/**/*
-**/*spec*
-# *.ts
-# !*.d.ts
+*.ts
+!*.d.ts
