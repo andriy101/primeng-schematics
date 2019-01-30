@@ -1,12 +1,12 @@
-[![Prime NG](http://www.primetek.com.tr/img/primeng.png)](https://www.primefaces.org/primeng)
+[![PrimeNG](http://www.primetek.com.tr/img/primeng.png)](https://www.primefaces.org/primeng)
 
-### Prime NG schematics (V7)
+### PrimeNG schematics (V7)
 
 [![npm version](https://img.shields.io/npm/v/primeng-schematics.svg?style=flat)](https://www.npmjs.com/package/primeng-schematics)
 [![npm](https://img.shields.io/npm/dt/primeng-schematics.svg)](https://npm-stat.com/charts.html?package=primeng-schematics)
 [![GitHub license](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/andriy101/primeng-schematics/blob/master/LICENSE)
 
-This project is heavily inspired by [Angular Material Schematics](https://material.angular.io/guide/schematics) and adds [Prime NG (V7)](https://www.primefaces.org/primeng) support to your Angular (V7) project.
+This project is heavily inspired by [Angular Material Schematics](https://material.angular.io/guide/schematics) and adds [PrimeNG (V7)](https://www.primefaces.org/primeng) support to your Angular (V7) project.
 
 ### Install Schematics
 
@@ -22,22 +22,22 @@ No need (although possible and harmless) in running `npm i primeng-schematics`, 
 ng add primeng-schematics
 ```
 
-The command will help you quickly add Prime NG to a new project. This schematic will:
+The command will help you quickly add PrimeNG to a new project. This schematic will:
 * Ensure project dependencies in `package.json`
 * Ensure project dependencies in your app module
-* Adds prebuilt Prime NG theme into `angular.json`
+* Adds prebuilt PrimeNG theme into `angular.json`
 * Adds [Prime icons](http://primefaces.org/primeng/#/icons)
 
 ### Generator Schematics
 
-In addition to the install, Prime NG schematic module has currently four (more to come soon) schematics it comes packaged with:
+In addition to the install, PrimeNG schematic module has currently four (more to come soon) schematics it comes packaged with:
 * [Menu bar](https://www.primefaces.org/primeng/#/menubar)
-* [Organization chart](https://www.primefaces.org/primeng/#/organizationchart) (including Prime NG growl)
+* [Organization chart](https://www.primefaces.org/primeng/#/organizationchart) (including PrimeNG growl)
 * [Side bar](https://www.primefaces.org/primeng/#/sidebar)
 * [Table with a new state storage](https://www.primefaces.org/primeng/#/table/state)
 
 
-Each component schematic will create a new angular component that includes Prime NG component. (`ng g` is an alias for `ng generate`)
+Each component schematic will create a new angular component that includes PrimeNG component. (`ng g` is an alias for `ng generate`)
 
 #### Menu bar schematics
 
