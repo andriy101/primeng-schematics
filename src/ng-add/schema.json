@@ -9,28 +9,68 @@
       "default": false,
       "description": "Do not add primeng dependencies to package.json (e.g., --skipPackageJson)"
     },
+    "addChartJs": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether to add chart.js library"
+    },
+    "addPrimeFlex": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether to add prime flex library"
+    },
+    "createSample": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether to create a sample dashboard component and insert it into app.component (via ng-new)"
+    },
+    "setDefaultCollection": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether to set default collection in angular json file"
+    },
+    "addPrimengSchematics": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether to add primeng-schematics to package.json"
+    },
     "theme": {
       "description": "The theme to apply",
       "type": "string",
-      "default": "omega",
+      
+      "enum": ["luna-amber", "luna-blue", "luna-green", "luna-pink", "nova-colored", "nova-dark", "nova-light", "rhea"],
+      "default": "rhea",
       "x-prompt": {
-        "message": "Choose a prebuilt theme name, or \"custom\" for a custom theme:",
+        "message": "Choose a prebuilt theme name",
         "type": "list",
         "items": [
-          { "value": "omega", "label": "Omega" },
-          { "value": "flick", "label": "Flick" },
-          { "value": "lightness", "label": "Lightness" },
-          { "value": "kasper", "label": "Kasper" },
-          { "value": "start", "label": "Start" }
+          { "value": "luna-amber", "label": "Luna amber" },
+          { "value": "luna-blue", "label": "Luna blue" },
+          { "value": "luna-green", "label": "Luna green" },
+          { "value": "luna-pink", "label": "Luna pink" },
+          { "value": "nova-colored", "label": "Nova colored" },
+          { "value": "nova-dark", "label": "Nova dark" },
+          { "value": "nova-light", "label": "Nova light" },
+          { "value": "rhea", "label": "Rhea" }
         ]
       }
-    }
-  },
-  "project": {
-    "type": "string",
-    "description": "Name of the project.",
-    "$default": {
-      "$source": "projectName"
+    },
+    "workingDirectory": {
+      "description": "Used when called from parent tree (internal use only).",
+      "type": "string",
+      "visible": false
+    },
+    "changeThemeOnly": {
+      "description": "Will only change a theme.",
+      "type": "boolean",
+      "visible": true
+    },
+    "project": {
+      "type": "string",
+      "description": "Name of the project.",
+      "$default": {
+        "$source": "projectName"
+      }
     }
   },
   "required": []

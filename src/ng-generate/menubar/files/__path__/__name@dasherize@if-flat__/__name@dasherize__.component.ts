@@ -92,5 +92,5 @@ export class <%= classify(name) %>Component {
     {
         label: 'Quit', icon: 'pi pi-fw pi-times'
     }
-];
+  ];
 }

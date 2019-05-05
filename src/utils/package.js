@@ -3,9 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Adds a package to the package.json
  */
-function addPackageToPackageJson(host, type, pkg, version) {
-    if (host.exists('package.json')) {
-        const sourceText = host.read('package.json').toString('utf-8');
+function addPackageToPackageJson(tree, type, pkg, version) {
+    if (tree.exists('package.json')) {
+        const sourceText = tree.read('package.json').toString('utf-8');
         const json = JSON.parse(sourceText);
         if (!json[type]) {
             json[type] = {};
@@ -13,9 +13,27 @@ function addPackageToPackageJson(host, type, pkg, version) {
         if (!json[type][pkg]) {
             json[type][pkg] = version;
         }
-        host.overwrite('package.json', JSON.stringify(json, null, 2));
+        tree.overwrite('package.json', JSON.stringify(json, null, 2));
     }
-    return host;
+    return tree;
 }
 exports.addPackageToPackageJson = addPackageToPackageJson;
+/**
+ * Adds a png alias to the package.json's scripts
+ */
+function addPngAliasToPackageJson(tree) {
+    if (tree.exists('package.json')) {
+        const sourceText = tree.read('package.json').toString('utf-8');
+        const json = JSON.parse(sourceText);
+        if (!json.scripts) {
+            json.scripts = {};
+        }
+        if (!json.scripts.png) {
+            json.scripts.png = 'png';
+        }
+        tree.overwrite('package.json', JSON.stringify(json, null, 2));
+    }
+    return tree;
+}
+exports.addPngAliasToPackageJson = addPngAliasToPackageJson;
 //# sourceMappingURL=package.js.map

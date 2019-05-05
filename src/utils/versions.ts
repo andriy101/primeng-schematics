@@ -1,3 +1,8 @@
-export const angularVersion = '~7.2.3';
-export const primengVersion = '~7.0.5';
-export const primeiconsVersion = '~1.0.0';
+export const versions = {
+  angular: '7',
+  primeng: '7',
+  primeicons: '1',
+  chartjs: '2',
+  primeflex: '1.0.0-rc.1 || 1',
+  primengSchematics: '7'
+};

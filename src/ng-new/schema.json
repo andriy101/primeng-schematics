@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "primeng-ng-new",
+  "title": "Primeng ng-new schematic",
+  "type": "object",
+  "properties": {
+    "skipPackageJson": {
+      "type": "boolean",
+      "default": false,
+      "description": "Do not add primeng dependencies to package.json (e.g., --skipPackageJson)"
+    },
+    "workingDirectory": {
+      "description": "Used for calling ng-add schematics (internal use only).",
+      "type": "string",
+      "visible": false
+    },
+    "project": {
+      "type": "string",
+      "description": "Name of the project.",
+      "$default": {
+        "$source": "projectName"
+      }
+    }
+  },
+  "required": []
+}

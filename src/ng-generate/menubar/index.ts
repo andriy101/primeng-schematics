@@ -1,9 +1,12 @@
-import { chain, Rule, noop, Tree } from '@angular-devkit/schematics';
+import { chain, Rule, noop, Tree, applyToSubtree } from '@angular-devkit/schematics';
 import {
   addModuleImportToModule,
   buildComponent,
   findModuleFromOptions,
 } from '@angular/cdk/schematics';
+
+import * as figlet from 'figlet';
+
 import { Schema } from './schema';
 
 /**
@@ -11,10 +14,14 @@ import { Schema } from './schema';
  * Internally it bootstraps the base component schematic
  */
 export default function(options: Schema): Rule {
-  return chain([
+  console.log(`\n${figlet.textSync('ng g menubar')}\n`);
+  const rules: Rule[] = [
     buildComponent({ ...options }),
-    options['skipImport'] ? noop() : addComponentModulesToModule(options)
-  ]);
+    options.skipImport ? noop() : addComponentModulesToModule(options)
+  ];
+
+  const wd = options.workingDirectory;
+  return wd ? applyToSubtree(wd, rules) : chain(rules);
 }
 
 /**

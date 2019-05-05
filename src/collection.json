@@ -1,5 +1,6 @@
 {
   "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "extends": "@schematics/angular",
   "schematics": {
     "ng-add": {
       "description": "Adds PrimeNG to the application without affecting any templates",
@@ -7,29 +8,45 @@
       "schema": "./ng-add/schema.json",
       "aliases": [ "primeng-add" ]
     },
+    "ng-new": {
+      "description": "NG NEW",
+      "factory": "./ng-new/index"
+    },
     "menubar": {
       "description": "Create a menubar component",
       "factory": "./ng-generate/menubar/index",
       "schema": "./ng-generate/menubar/schema.json",
-      "aliases": [ "primeng-menubar", "mb" ]
+      "aliases": [ "mb" ]
     },
     "org-chart": {
       "description": "Create an organization chart component",
       "factory": "./ng-generate/org-chart/index",
       "schema": "./ng-generate/org-chart/schema.json",
-      "aliases": [ "primeng-org-chart", "oc" ]
+      "aliases": [ "oc" ]
     },
     "sidebar": {
       "description": "Create a sidebar component",
       "factory": "./ng-generate/sidebar/index",
       "schema": "./ng-generate/sidebar/schema.json",
-      "aliases": [ "primeng-sidebar", "sb" ]
+      "aliases": [ "sb" ]
     },
     "table": {
       "description": "Create a table component",
       "factory": "./ng-generate/table/index",
       "schema": "./ng-generate/table/schema.json",
-      "aliases": [ "primeng-table", "t" ]
+      "aliases": [ "t" ]
+    },
+    "chart": {
+      "description": "Create a chart JS component",
+      "factory": "./ng-generate/chart/index",
+      "schema": "./ng-generate/chart/schema.json",
+      "aliases": [ "ch" ]
+    },
+    "dashboard": {
+      "description": "Create a dashboard component",
+      "factory": "./ng-generate/dashboard/index",
+      "schema": "./ng-generate/dashboard/schema.json",
+      "aliases": [ "dbr" ]
     }
   }
 }

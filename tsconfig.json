@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "resolveJsonModule": true,
     "baseUrl": "tsconfig",
     "lib": [
       "es2018",
@@ -26,10 +27,13 @@
     ]
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "src/**/chart-js/*"
   ],
   "exclude": [
     "src/ng-generate/*/files/**/*",
-    "src/*/*/files/**/*"
+    "src/ng-generate/chart-js/*/files/**/*",
+    "src/*/*/files/**/*",
+    "src/ng-add/files/**/*",
   ]
 }

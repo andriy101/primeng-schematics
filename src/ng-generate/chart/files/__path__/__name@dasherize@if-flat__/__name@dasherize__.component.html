@@ -1,0 +1,2 @@
+<% if(type === 'line') { %><p-toast></p-toast><% } %>
+<p-chart type="<%= type %>" [data]="data"<% if(type === 'line') { %> (onDataSelect)="selectData($event)"<% } %>></p-chart>

@@ -1,15 +1,21 @@
 {
   "name": "primeng-schematics",
-  "version": "7.0.7",
+  "version": "7.1.0",
   "description": "Schematics for Prime NG",
+  "bin": {
+    "primeng-schematics": "./bin/run.sh",
+    "png": "./bin/run.sh",
+    "png-utils": "./bin/utils.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/andriy101/primeng-schematics.git"
   },
   "scripts": {
+    "ng": "ng",
     "build": "tsc -p tsconfig.json",
     "test": "npm run build && jasmine src/**/**/*.spec.js",
-    "ts-only": "sudo find ./src \\( -name \"*.d.ts\" -o -name \"*.js\" \\! -name \"*__.js\" \\! -name \"*__.test.js\" \\! -name \"*Data.js\" -o -name \"*.js.map\" \\) -exec rm {} \\;"
+    "ts-only": "find ./src \\( -name \"*.d.ts\" -o -name \"*.js\" \\! -name \"*__.js\" \\! -name \"*__.test.js\" \\! -name \"*Data.js\" -o -name \"*.js.map\" \\) -exec rm {} \\;"
   },
   "keywords": [
     "schematics",
@@ -24,14 +30,18 @@
   "license": "MIT",
   "schematics": "./src/collection.json",
   "dependencies": {
-    "@angular-devkit/core": "~7.2.3",
-    "@angular-devkit/schematics": "~7.2.3",
-    "@angular/cdk": "^7.2.2",
-    "@schematics/angular": "~7.2.3",
-    "@types/jasmine": "^3.3.8",
-    "@types/node": "~10.12.18",
+    "@angular-devkit/core": "^7.2.4",
+    "@angular-devkit/schematics": "^7.3.8",
+    "@angular/cdk": "^7.3.7",
+    "@angular/cli": "^7.3.8",
+    "@schematics/angular": "^7.2.4",
+    "@types/figlet": "^1.2.0",
+    "@types/jasmine": "^3.3.12",
+    "@types/node": "^10.12.30",
+    "chalk": "^2.4.2",
+    "figlet": "^1.2.1",
     "jasmine": "~3.3.1",
-    "tslint": "^5.12.1",
+    "tslint": "^5.15.0",
     "typescript": "~3.2.4"
   }
 }
