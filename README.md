@@ -10,13 +10,10 @@ This project is inspired by [Angular Material Schematics](https://material.angul
 
 ### Create a new angular project with PrimeNG support
 with [**npm init**](https://docs.npmjs.com/cli/init#examples)
-```bash
-$ npm init primeng my-primeng-app
-```
+![npm init primeng my-primeng-app](https://raw.githubusercontent.com/andriy101/primeng-schematics/master/assets/npm-init.png)
+
 or [**yarn create**](https://yarnpkg.com/lang/en/docs/cli/create/)
-```bash
-$ yarn create primeng my-primeng-app
-```
+![yarn create primeng my-primeng-app](https://raw.githubusercontent.com/andriy101/primeng-schematics/master/assets/yarn-create.png)
 No globally installed NPM modules are required.
 Executing one of these commands will:
 1. create a new Angular 7 project called "my-primeng-app" (_**angular ng-new**_ schematic)
@@ -34,21 +31,18 @@ _**-**_ six types of primeNG charts (_**png g chr --type <TYPE>**_ schematic)
 _**-**_ primeNG table (_**png g t**_ schematic)
 4. run _**ng serve -o**_ command
 
+The newly created app should now look like (with **rhea** default theme):
+![newly created rhea app](https://raw.githubusercontent.com/andriy101/primeng-schematics/master/assets/theme-rhea.png)
+
 Any additional **Angular NG NEW** or **PrimeNG ADD** options may be passed along with this command:
-```bash
-$ npm init primeng my-primeng-app --minimal --interactive false --theme luna-amber
-```
+![npm init primeng my-primeng-app --minimal --interactive false --theme luna-amber](https://raw.githubusercontent.com/andriy101/primeng-schematics/master/assets/npm-init-mini.png)
+
 Test your new app (if the app was created without **--minimal** flag):
-```bash
-$ npm test
-```
+![npm test](https://raw.githubusercontent.com/andriy101/primeng-schematics/master/assets/npm-test.png)
 
 ### Global installs
 You may install **@angular/cli**, and **primeng-schematics** globally, which will expose **ng** and **primeng-schematics** (along with its alias **png**) global executables respectively:
-
-```bash
-$ npm i @angular/cli primeng-schematics -g
-```
+![npm i @angular/cli primeng-schematics -g](https://raw.githubusercontent.com/andriy101/primeng-schematics/master/assets/global-installs.png)
 
 In further examples I will assume that these packages are installed globally. It is also possible to use local or temporary cached with **npx** packages. So instead of running
 ```bash
@@ -81,29 +75,25 @@ $ `npm bin`/png help
 $ node_modules/.bin/png c componentName
 ```
 
-
 To see **Angular NG NEW** options run:
-```bash
-$ ng new --help
-```
+![ng new --help](https://raw.githubusercontent.com/andriy101/primeng-schematics/master/assets/ng-new-help.png)
 
 To see **PrimeNG ADD** options run:
-```bash
-$ png add --help
-```
+![png add --help](https://raw.githubusercontent.com/andriy101/primeng-schematics/master/assets/png-add-help.png)
+
 
 ### Change theme palette (even while app is running)
-```bash
-$ png theme
-```
+![png theme](https://raw.githubusercontent.com/andriy101/primeng-schematics/master/assets/png-theme.png)
+
 and then choose the theme from the dialog or pass it with **--theme** flag, for example:
-```bash
-$ png theme --theme rhea
-```
+![png theme --theme luna-amber](https://raw.githubusercontent.com/andriy101/primeng-schematics/master/assets/png-theme-theme.png)
+
+After switching to **luna-amber** palette, the app should look like
+![switch to luna-amber theme](https://raw.githubusercontent.com/andriy101/primeng-schematics/master/assets/theme-luna-amber.png)
+
 to see available themes:
-```bash
-$ png theme help
-```
+![png theme help](https://raw.githubusercontent.com/andriy101/primeng-schematics/master/assets/png-theme-help.png)
+
 
 ### Generator Schematics
 
@@ -149,14 +139,10 @@ $ ng g chart <COMPONENT_NAME> [--type [line, bar, doughnut, pie, polarArea, rada
 $ ng g dashboard <COMPONENT_NAME>
 ```
 You may also use **png g** command instead of **ng g**:
-```bash
-$ png g dashboard my-dashboard
-```
+![png g dashboard my-dashboard](https://raw.githubusercontent.com/andriy101/primeng-schematics/master/assets/png-dashboard.png)
+
 Too see components' aliases and options:
-```bash
-$ png g help
-$ png generate help
-```
+![png generate help](https://raw.githubusercontent.com/andriy101/primeng-schematics/master/assets/png-g-help.png)
 
 After executing one of these commands, a new angular component will be created with provided name. After this point you can add this new component to any existing component.
 
@@ -173,9 +159,7 @@ For example, assuming that you created `<app-mb>`, `<app-oc>`, `<app-sb>` and `<
 ```
 
 ### GENERAL HELP
-```bash
-$ png help
-```
+![png help](https://raw.githubusercontent.com/andriy101/primeng-schematics/master/assets/png-help.png)
 
 ### TODOS
 * Improve / fix / add tests
