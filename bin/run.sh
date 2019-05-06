@@ -37,7 +37,7 @@ if [[ $commands =~ (^|[[:space:]])$1($|[[:space:]]) ]] && [ $2 ] || [ $1 = "them
       png-utils help theme
     elif [ ! -f package.json ] || [ ! -f angular.json ] ; then
       no_angular_app_warning
-    elif [ $2 ] ; then
+    else
       `npm bin`/ng add primeng-schematics --changeThemeOnly $ARGS
     fi
   elif [ "$1" = "add" ] ; then
