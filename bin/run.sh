@@ -16,9 +16,7 @@ if [[ $commands =~ (^|[[:space:]])$1($|[[:space:]]) ]] && [ $2 ] || [ $1 = "them
     if  [ "$2" = "help" ] || [ "$2" = "--help" ] || [ "$2" = "-h" ] ; then
       png-utils help new
     else
-      # primeng-schematics/node_modules/.bin/ng $ARGS -c primeng-schematics --minimal true
-      # npx @angular/cli@7 $ARGS -c primeng-schematics
-      npx -p primeng-schematics@7 -p @angular/cli@7 -c "$ARGS -c primeng-schematics"
+      npx -p primeng-schematics@7 -p @angular/cli@7 -c "ng $ARGS -c primeng-schematics"
       echo
       png-utils figlet 'ng serve' 
       echo
