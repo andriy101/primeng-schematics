@@ -31,10 +31,6 @@ if [[ $commands =~ (^|[[:space:]])$1($|[[:space:]]) ]] && [ $2 ] || [ $1 = "them
     elif [ ! -f package.json ] || [ ! -f angular.json ] ; then
       no_angular_app_warning
     else
-      #firstitem=$1
-      #shift;
-      #ARGS="$*"
-      ECHO $ARGS
       `npm bin`/ng $ARGS
     fi
   elif [ "$1" = "theme" ] ; then
