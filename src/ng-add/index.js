@@ -55,12 +55,10 @@ function deleteAppSpecFile() {
  * overwrite app.component.spec.ts file
  */
 function overwriteAppSpecFile(options) {
-    return (tree) => {
-        return schematics_1.mergeWith(schematics_1.apply(schematics_1.url('./files'), [
-            schematics_1.template(Object.assign({}, options, { routing: tree.exists('src/app/app-routing.module.ts'), name: options.workingDirectory })),
-            schematics_1.move('src/app')
-        ]), schematics_1.MergeStrategy.Overwrite);
-    };
+    return schematics_1.mergeWith(schematics_1.apply(schematics_1.url('./files'), [
+        schematics_1.template(Object.assign({}, options, { routing: false, name: options.workingDirectory })),
+        schematics_1.move('src/app')
+    ]), schematics_1.MergeStrategy.Overwrite);
 }
 /**
  * Add primeng packages to package.json if not already present.
