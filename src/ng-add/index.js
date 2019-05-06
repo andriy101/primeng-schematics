@@ -9,6 +9,7 @@ const figlet = require("figlet");
 const package_1 = require("../utils/package");
 const theming_1 = require("./theming");
 const versions_1 = require("../utils/versions");
+const utils_1 = require("../utils");
 /**
  * Scaffolds the basics of a PrimeNG application, this includes:
  *  - Add Packages to package.json
@@ -34,7 +35,7 @@ function default_1(options) {
                 rules.push(overwriteAppSpecFile(options));
             }
         }
-        options.setDefaultCollection && rules.push((tree) => package_1.addPngAliasToPackageJson(tree));
+        options.setDefaultCollection && rules.push((tree) => utils_1.addDefaultCli(tree));
     }
     const wd = options.workingDirectory;
     return wd ? schematics_1.applyToSubtree(wd, rules) : schematics_1.chain(rules);
@@ -50,11 +51,13 @@ function deleteAppSpecFile() {
         return tree;
     };
 }
+/**
+ * overwrite app.component.spec.ts file
+ */
 function overwriteAppSpecFile(options) {
     return (tree) => {
-        const routingFilePath = 'src/app/app-routing.module.ts';
         return schematics_1.mergeWith(schematics_1.apply(schematics_1.url('./files'), [
-            schematics_1.template(Object.assign({}, options, { routing: tree.exists(routingFilePath), name: options.workingDirectory })),
+            schematics_1.template(Object.assign({}, options, { routing: tree.exists('src/app/app-routing.module.ts'), name: options.workingDirectory })),
             schematics_1.move('src/app')
         ]), schematics_1.MergeStrategy.Overwrite);
     };

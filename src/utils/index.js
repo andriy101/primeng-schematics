@@ -15,7 +15,7 @@ exports.printSectionTitle = printSectionTitle;
 /**
  * Adds a default collection to angular.json
  */
-function addPngAliasToPackageJson(tree) {
+function addDefaultCli(tree) {
     if (tree.exists('angular.json')) {
         const sourceText = tree.read('angular.json').toString('utf-8');
         const json = JSON.parse(sourceText);
@@ -27,5 +27,5 @@ function addPngAliasToPackageJson(tree) {
     }
     return tree;
 }
-exports.addPngAliasToPackageJson = addPngAliasToPackageJson;
+exports.addDefaultCli = addDefaultCli;
 //# sourceMappingURL=index.js.map
