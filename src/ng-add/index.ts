@@ -62,16 +62,14 @@ function deleteAppSpecFile() {
  * overwrite app.component.spec.ts file
  */
 function overwriteAppSpecFile(options: Schema & NgNewSchema) {
-  return (tree: Tree) => {
-    return mergeWith(apply(url('./files'), [
-      template({
-        ...options,
-        routing: tree.exists('src/app/app-routing.module.ts'),
-        name: options.workingDirectory
-      }),
-      move('src/app')
-    ]), MergeStrategy.Overwrite);
-  };
+  return mergeWith(apply(url('./files'), [
+    template({
+      ...options,
+      routing: false,
+      name: options.workingDirectory
+    }),
+    move('src/app')
+  ]), MergeStrategy.Overwrite);
 }
 
 /**
