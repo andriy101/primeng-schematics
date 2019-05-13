@@ -17,15 +17,16 @@ if [[ $commands =~ (^|[[:space:]])$1($|[[:space:]]) ]] && [ $2 ] || [ $1 = "them
       png-utils help new
     else
       if [[ "$OSTYPE" == "msys" ]] ; then
-        npx -p primeng-schematics@7 -p @angular/cli@7 ng $ARGS -c primeng-schematics && cd $2
+        npx -p primeng-schematics@7 -p @angular/cli@7 ng $ARGS -c primeng-schematics
       else
-        npx -p primeng-schematics@7 -p @angular/cli@7 -c "ng $ARGS -c primeng-schematics && cd $2"
+        npx -p primeng-schematics@7 -p @angular/cli@7 -c "ng $ARGS -c primeng-schematics"
       fi
+
+      # cd to the newly created app and start the app
+      cd $2
       echo
       `npm bin`/png-utils figlet 'ng serve' 
       echo
-      # cd to the newly created app
-      cd $2
       `npm bin`/ng serve -o
     fi
   elif [ "$1" = "g" ] || [ "$1" = "generate" ] ; then
