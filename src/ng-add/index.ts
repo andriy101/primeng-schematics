@@ -1,4 +1,4 @@
-import { Rule, Tree, SchematicContext, applyToSubtree, chain, mergeWith, apply, url, template, move } from '@angular-devkit/schematics';
+import { Rule, Tree, SchematicContext, applyToSubtree, chain, mergeWith, apply, url, template, move, FileEntry, forEach, MergeStrategy } from '@angular-devkit/schematics';
 import { NodePackageInstallTask, RunSchematicTask } from '@angular-devkit/schematics/tasks';
 import { getWorkspace } from '@schematics/angular/utility/config';
 import { getProjectFromWorkspace } from '@angular/cdk/schematics';
@@ -36,8 +36,7 @@ export default function(options: Schema & NgNewSchema): Rule {
       rules.push(createSample(options));
       if (options.workingDirectory) {
         rules.push(modifyAppComponentTemplate());
-        rules.push(deleteAppSpecFile());
-        rules.push(overwriteAppSpecFile(options));
+        rules.push((tree: Tree) => overwriteAppSpecFile(options, tree));
       }
     }
     options.setDefaultCollection && rules.push((tree: Tree): Tree => addDefaultCli(tree));
@@ -48,28 +47,25 @@ export default function(options: Schema & NgNewSchema): Rule {
 }
 
 /**
- * delete app.component.spec.ts file
- */
-function deleteAppSpecFile() {
-  return (tree: Tree) => {
-    const specFilePath = 'src/app/app.component.spec.ts';
-    tree.exists(specFilePath) && tree.delete(specFilePath);
-    return tree;
-  };
-}
-
-/**
  * overwrite app.component.spec.ts file
  */
-function overwriteAppSpecFile(options: Schema & NgNewSchema) {
+function overwriteAppSpecFile(options: Schema & NgNewSchema, tree: Tree) {
+  const path = 'src/app';
   return mergeWith(apply(url('./files'), [
+    forEach((file: FileEntry) => {
+      const filePath = `${path}/${file.path}`;
+      if (tree.exists(filePath)) {
+        tree.overwrite(filePath, file.content);
+      }
+      return file;
+    }),
     template({
       ...options,
-      routing: false,
+      routing: tree.exists(`${path}/app-routing.module.ts`),
       name: options.workingDirectory
     }),
-    move('src/app')
-  ]));
+    move(path)
+  ]), MergeStrategy.Overwrite);
 }
 
 /**

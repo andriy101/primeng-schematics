@@ -31,8 +31,7 @@ function default_1(options) {
             rules.push(createSample(options));
             if (options.workingDirectory) {
                 rules.push(theming_1.modifyAppComponentTemplate());
-                rules.push(deleteAppSpecFile());
-                rules.push(overwriteAppSpecFile(options));
+                rules.push((tree) => overwriteAppSpecFile(options, tree));
             }
         }
         options.setDefaultCollection && rules.push((tree) => utils_1.addDefaultCli(tree));
@@ -42,23 +41,21 @@ function default_1(options) {
 }
 exports.default = default_1;
 /**
- * delete app.component.spec.ts file
- */
-function deleteAppSpecFile() {
-    return (tree) => {
-        const specFilePath = 'src/app/app.component.spec.ts';
-        tree.exists(specFilePath) && tree.delete(specFilePath);
-        return tree;
-    };
-}
-/**
  * overwrite app.component.spec.ts file
  */
-function overwriteAppSpecFile(options) {
+function overwriteAppSpecFile(options, tree) {
+    const path = 'src/app';
     return schematics_1.mergeWith(schematics_1.apply(schematics_1.url('./files'), [
-        schematics_1.template(Object.assign({}, options, { routing: false, name: options.workingDirectory })),
-        schematics_1.move('src/app')
-    ]));
+        schematics_1.forEach((file) => {
+            const filePath = `${path}/${file.path}`;
+            if (tree.exists(filePath)) {
+                tree.overwrite(filePath, file.content);
+            }
+            return file;
+        }),
+        schematics_1.template(Object.assign({}, options, { routing: tree.exists(`${path}/app-routing.module.ts`), name: options.workingDirectory })),
+        schematics_1.move(path)
+    ]), schematics_1.MergeStrategy.Overwrite);
 }
 /**
  * Add primeng packages to package.json if not already present.
