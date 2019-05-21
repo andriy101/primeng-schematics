@@ -53,12 +53,13 @@ export default function(options: Schema & NgNewSchema): Rule {
  * overwrite app.component.spec.ts file
  */
 function overwriteAppSpecFile(options: Schema & NgNewSchema, tree: Tree) {
-  const path = 'src/app';
+  const wd = options.workingDirectory ? `${options.workingDirectory}/` : '';
+  const path = `${wd}src/app`;
   return mergeWith(apply(url('./files'), [
     forEach((file: FileEntry) => {
       const filePath = `${path}/${file.path}`;
       if (tree.exists(filePath)) {
-        tree.overwrite(filePath, file.content);
+        tree.delete(filePath);
       }
       return file;
     }),

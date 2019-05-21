@@ -47,12 +47,13 @@ exports.default = default_1;
  * overwrite app.component.spec.ts file
  */
 function overwriteAppSpecFile(options, tree) {
-    const path = 'src/app';
+    const wd = options.workingDirectory ? `${options.workingDirectory}/` : '';
+    const path = `${wd}src/app`;
     return schematics_1.mergeWith(schematics_1.apply(schematics_1.url('./files'), [
         schematics_1.forEach((file) => {
             const filePath = `${path}/${file.path}`;
             if (tree.exists(filePath)) {
-                tree.overwrite(filePath, file.content);
+                tree.delete(filePath);
             }
             return file;
         }),
