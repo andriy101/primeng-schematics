@@ -19,8 +19,7 @@ if [[ $commands =~ (^|[[:space:]])$1($|[[:space:]]) ]] && [ $2 ] || [ $1 = "them
       if [[ "$OSTYPE" == "msys" ]] ; then
         npx -p primeng-schematics@7 -p @angular/cli@7 ng $ARGS -c primeng-schematics
       else
-        npx -p @angular/cli@7 -c "ng $ARGS -c primeng-schematics"
-        # npx -p primeng-schematics@7 -p @angular/cli@7 -c "ng $ARGS -c primeng-schematics"
+        npx -p primeng-schematics@7 -p @angular/cli@7 -c "ng $ARGS -c primeng-schematics"
       fi
 
       # cd to the newly created app and start the app
