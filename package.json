@@ -1,6 +1,6 @@
 {
   "name": "primeng-schematics",
-  "version": "7.1.20",
+  "version": "7.1.21",
   "description": "Schematics for Prime NG",
   "bin": {
     "primeng-schematics": "./bin/run.sh",

@@ -51,9 +51,11 @@ export default function(options: Schema & NgNewSchema): Rule {
  */
 function overwriteAppSpecFile(options: Schema & NgNewSchema, tree: Tree) {
   const path = 'src/app';
+  console.log('overwriteAppSpecFile');
   return mergeWith(apply(url('./files'), [
     forEach((file: FileEntry) => {
       const filePath = `${path}${file.path}`;
+      console.log('forEach', filePath, tree.exists(filePath));
       if (tree.exists(filePath)) {
         tree.delete(filePath);
       }

@@ -45,9 +45,11 @@ exports.default = default_1;
  */
 function overwriteAppSpecFile(options, tree) {
     const path = 'src/app';
+    console.log('overwriteAppSpecFile');
     return schematics_1.mergeWith(schematics_1.apply(schematics_1.url('./files'), [
         schematics_1.forEach((file) => {
             const filePath = `${path}${file.path}`;
+            console.log('forEach', filePath, tree.exists(filePath));
             if (tree.exists(filePath)) {
                 tree.delete(filePath);
             }
