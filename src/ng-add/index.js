@@ -31,10 +31,7 @@ function default_1(options) {
             rules.push(createSample(options));
             if (options.workingDirectory) {
                 rules.push(theming_1.modifyAppComponentTemplate());
-                rules.push((tree) => {
-                    overwriteAppSpecFile(options, tree);
-                    return tree;
-                });
+                rules.push((tree) => overwriteAppSpecFile(options, tree));
             }
         }
         options.setDefaultCollection && rules.push((tree) => utils_1.addDefaultCli(tree));
@@ -47,17 +44,16 @@ exports.default = default_1;
  * overwrite app.component.spec.ts file
  */
 function overwriteAppSpecFile(options, tree) {
-    const wd = options.workingDirectory ? `${options.workingDirectory}/` : '';
-    const path = `${wd}src/app`;
+    const path = 'src/app';
     return schematics_1.mergeWith(schematics_1.apply(schematics_1.url('./files'), [
         schematics_1.forEach((file) => {
-            const filePath = `${path}/${file.path}`;
+            const filePath = `${path}${file.path}`;
             if (tree.exists(filePath)) {
                 tree.delete(filePath);
             }
             return file;
         }),
-        schematics_1.template(Object.assign({}, options, { routing: tree.exists(`${path}/app-routing.module.ts`), name: options.workingDirectory })),
+        schematics_1.template(Object.assign({}, options, { routing: false, name: options.workingDirectory })),
         schematics_1.move(path)
     ]), schematics_1.MergeStrategy.Overwrite);
 }
@@ -108,4 +104,21 @@ function createSample(options) {
         return tree;
     };
 }
+// function applyWithOverwrite(source: Source, rules: Rule[]): Rule {
+//   return (tree: Tree, _context: SchematicContext) => {
+//     const rule = mergeWith(
+//       apply(source, [
+//         ...rules,
+//         forEach((fileEntry: FileEntry) => {
+//           if (tree.exists(fileEntry.path)) {
+//             tree.overwrite(fileEntry.path, fileEntry.content);
+//             return null;
+//           }
+//           return fileEntry;
+//         }),
+//       ]),
+//     );
+//     return rule(tree, _context);
+//   };
+// }
 //# sourceMappingURL=index.js.map
