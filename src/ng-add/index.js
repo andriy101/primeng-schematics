@@ -17,7 +17,7 @@ const utils_1 = require("../utils");
  *  - Adds Browser Animation to app.momdule
  */
 function default_1(options) {
-    console.log(`\n${figlet.textSync('ng add')}\n`);
+    console.log(`\n${figlet.textSync('ng add XX')}\n`);
     const rules = [];
     if (options.changeThemeOnly) {
         rules.push(theming_1.importThemeInStyles(options.theme));
@@ -58,7 +58,7 @@ function overwriteAppSpecFile(options) {
     return schematics_1.mergeWith(schematics_1.apply(schematics_1.url('./files'), [
         schematics_1.template(Object.assign({}, options, { routing: false, name: options.workingDirectory })),
         schematics_1.move('src/app')
-    ]), schematics_1.MergeStrategy.Overwrite);
+    ]));
 }
 /**
  * Add primeng packages to package.json if not already present.

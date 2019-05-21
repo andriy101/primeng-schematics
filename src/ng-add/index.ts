@@ -1,4 +1,4 @@
-import { Rule, Tree, SchematicContext, applyToSubtree, chain, mergeWith, apply, url, template, move, MergeStrategy } from '@angular-devkit/schematics';
+import { Rule, Tree, SchematicContext, applyToSubtree, chain, mergeWith, apply, url, template, move } from '@angular-devkit/schematics';
 import { NodePackageInstallTask, RunSchematicTask } from '@angular-devkit/schematics/tasks';
 import { getWorkspace } from '@schematics/angular/utility/config';
 import { getProjectFromWorkspace } from '@angular/cdk/schematics';
@@ -69,7 +69,7 @@ function overwriteAppSpecFile(options: Schema & NgNewSchema) {
       name: options.workingDirectory
     }),
     move('src/app')
-  ]), MergeStrategy.Overwrite);
+  ]));
 }
 
 /**
