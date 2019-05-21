@@ -45,19 +45,21 @@ exports.default = default_1;
  */
 function overwriteAppSpecFile(options, tree) {
     const path = 'src/app';
-    console.log('overwriteAppSpecFile');
-    return schematics_1.mergeWith(schematics_1.apply(schematics_1.url('./files'), [
-        schematics_1.forEach((file) => {
-            const filePath = `${path}${file.path}`;
-            console.log('forEach', filePath, tree.exists(filePath));
-            if (tree.exists(filePath)) {
-                tree.delete(filePath);
-            }
-            return file;
-        }),
-        schematics_1.template(Object.assign({}, options, { routing: false, name: options.workingDirectory })),
-        schematics_1.move(path)
-    ]), schematics_1.MergeStrategy.Overwrite);
+    const specFilePath = `${path}/app.component.spec.ts`;
+    if (tree.exists(specFilePath)) {
+        tree.delete(specFilePath);
+        return schematics_1.mergeWith(schematics_1.apply(schematics_1.url('./files'), [
+            // forEach((file: FileEntry) => {
+            //   const filePath = `${path}${file.path}`;
+            //   if (tree.exists(filePath)) {
+            //     tree.delete(filePath);
+            //   }
+            //   return file;
+            // }),
+            schematics_1.template(Object.assign({}, options, { routing: false, name: options.workingDirectory })),
+            schematics_1.move(path)
+        ]));
+    }
 }
 /**
  * Add primeng packages to package.json if not already present.
@@ -106,21 +108,4 @@ function createSample(options) {
         return tree;
     };
 }
-// function applyWithOverwrite(source: Source, rules: Rule[]): Rule {
-//   return (tree: Tree, _context: SchematicContext) => {
-//     const rule = mergeWith(
-//       apply(source, [
-//         ...rules,
-//         forEach((fileEntry: FileEntry) => {
-//           if (tree.exists(fileEntry.path)) {
-//             tree.overwrite(fileEntry.path, fileEntry.content);
-//             return null;
-//           }
-//           return fileEntry;
-//         }),
-//       ]),
-//     );
-//     return rule(tree, _context);
-//   };
-// }
 //# sourceMappingURL=index.js.map

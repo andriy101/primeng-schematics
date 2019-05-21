@@ -1,4 +1,4 @@
-import { Rule, Tree, SchematicContext, applyToSubtree, chain, mergeWith, apply, url, template, move, MergeStrategy, FileEntry, forEach } from '@angular-devkit/schematics';
+import { Rule, Tree, SchematicContext, applyToSubtree, chain, mergeWith, apply, url, template, move } from '@angular-devkit/schematics';
 import { NodePackageInstallTask, RunSchematicTask } from '@angular-devkit/schematics/tasks';
 import { getWorkspace } from '@schematics/angular/utility/config';
 import { getProjectFromWorkspace } from '@angular/cdk/schematics';
@@ -51,23 +51,25 @@ export default function(options: Schema & NgNewSchema): Rule {
  */
 function overwriteAppSpecFile(options: Schema & NgNewSchema, tree: Tree) {
   const path = 'src/app';
-  console.log('overwriteAppSpecFile');
-  return mergeWith(apply(url('./files'), [
-    forEach((file: FileEntry) => {
-      const filePath = `${path}${file.path}`;
-      console.log('forEach', filePath, tree.exists(filePath));
-      if (tree.exists(filePath)) {
-        tree.delete(filePath);
-      }
-      return file;
-    }),
-    template({
-      ...options,
-      routing: false,
-      name: options.workingDirectory
-    }),
-    move(path)
-  ]), MergeStrategy.Overwrite);
+  const specFilePath = `${path}/app.component.spec.ts`;
+  if (tree.exists(specFilePath)) {
+    tree.delete(specFilePath);
+    return mergeWith(apply(url('./files'), [
+      // forEach((file: FileEntry) => {
+      //   const filePath = `${path}${file.path}`;
+      //   if (tree.exists(filePath)) {
+      //     tree.delete(filePath);
+      //   }
+      //   return file;
+      // }),
+      template({
+        ...options,
+        routing: false,
+        name: options.workingDirectory
+      }),
+      move(path)
+    ]));
+  }
 }
 
 /**
@@ -128,23 +130,3 @@ function createSample(options: Schema) {
     return tree;
   }
 }
-
-// function applyWithOverwrite(source: Source, rules: Rule[]): Rule {
-//   return (tree: Tree, _context: SchematicContext) => {
-//     const rule = mergeWith(
-//       apply(source, [
-//         ...rules,
-//         forEach((fileEntry: FileEntry) => {
-//           if (tree.exists(fileEntry.path)) {
-//             tree.overwrite(fileEntry.path, fileEntry.content);
-//             return null;
-//           }
-//           return fileEntry;
-//         }),
-
-//       ]),
-//     );
-
-//     return rule(tree, _context);
-//   };
-// }
