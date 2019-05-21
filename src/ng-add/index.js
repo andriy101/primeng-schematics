@@ -31,7 +31,10 @@ function default_1(options) {
             rules.push(createSample(options));
             if (options.workingDirectory) {
                 rules.push(theming_1.modifyAppComponentTemplate());
-                rules.push((tree) => overwriteAppSpecFile(options, tree));
+                rules.push((tree) => {
+                    overwriteAppSpecFile(options, tree);
+                    return tree;
+                });
             }
         }
         options.setDefaultCollection && rules.push((tree) => utils_1.addDefaultCli(tree));
