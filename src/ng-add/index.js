@@ -17,7 +17,7 @@ const utils_1 = require("../utils");
  *  - Adds Browser Animation to app.momdule
  */
 function default_1(options) {
-    console.log(`\n${figlet.textSync('ng add XX')}\n`);
+    console.log(`\n${figlet.textSync('ng add')}\n`);
     const rules = [];
     if (options.changeThemeOnly) {
         rules.push(theming_1.importThemeInStyles(options.theme));
