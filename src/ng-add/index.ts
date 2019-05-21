@@ -36,7 +36,10 @@ export default function(options: Schema & NgNewSchema): Rule {
       rules.push(createSample(options));
       if (options.workingDirectory) {
         rules.push(modifyAppComponentTemplate());
-        rules.push((tree: Tree) => overwriteAppSpecFile(options, tree));
+        rules.push((tree: Tree): Tree => { 
+          overwriteAppSpecFile(options, tree);
+          return tree;
+        });
       }
     }
     options.setDefaultCollection && rules.push((tree: Tree): Tree => addDefaultCli(tree));
