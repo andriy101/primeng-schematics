@@ -21,8 +21,6 @@ if [[ $commands =~ (^|[[:space:]])$1($|[[:space:]]) ]] && [ $2 ] || [ $1 = "them
       for ARG in "$@"; do
         if [[ "$ARG" =~ ^v=* ]]; then
           VERSION="${ARG: -1}.x.x"
-          echo 
-          `npm bin`/png-utils figlet "version: $VERSION"
         else
           ARGS+=" $ARG"
         fi
@@ -36,6 +34,8 @@ if [[ $commands =~ (^|[[:space:]])$1($|[[:space:]]) ]] && [ $2 ] || [ $1 = "them
 
       # cd to the newly created app and start the app
       cd $2
+      echo 
+      `npm bin`/png-utils figlet "version: $VERSION"
       echo 
       `npm bin`/png-utils figlet 'ng serve' 
       echo 
