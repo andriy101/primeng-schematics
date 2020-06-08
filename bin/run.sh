@@ -21,6 +21,8 @@ if [[ $commands =~ (^|[[:space:]])$1($|[[:space:]]) ]] && [ $2 ] || [ $1 = "them
       for ARG in "$@"; do
         if [[ "$ARG" =~ ^v=* ]]; then
           VERSION="${ARG: -1}.x.x"
+          echo 
+          `npm bin`/png-utils figlet "version: $VERSION"
         else
           ARGS+=" $ARG"
         fi
@@ -29,10 +31,7 @@ if [[ $commands =~ (^|[[:space:]])$1($|[[:space:]]) ]] && [ $2 ] || [ $1 = "them
       if [[ "$OSTYPE" == "msys" ]] ; then
         npx -p primeng-schematics@$VERSION -p @angular/cli@$VERSION ng $ARGS -c primeng-schematics
       else 
-        echo 
-        `npm bin`/png-utils figlet "version: $VERSION"
-
-        # npx -p primeng-schematics@$VERSION -p @angular/cli@$VERSION -c "ng $ARGS -c primeng-schematics"
+        npx -p primeng-schematics@$VERSION -p @angular/cli@$VERSION -c "ng $ARGS -c primeng-schematics"
       fi
 
       # cd to the newly created app and start the app
