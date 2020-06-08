@@ -25,6 +25,8 @@ if [[ $commands =~ (^|[[:space:]])$1($|[[:space:]]) ]] && [ $2 ] || [ $1 = "them
           ARGS+=" $ARG"
         fi
       done
+      
+      VERSION=7.x.x
 
       if [[ "$OSTYPE" == "msys" ]] ; then
         npx -p primeng-schematics@$VERSION -p @angular/cli@$VERSION ng $ARGS -c primeng-schematics
